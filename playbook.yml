@@ -16,18 +16,28 @@
       homebrew: name={{ item }} state=present
       with_items:
         - ag
+        - bitlbee
         - byobu # this also installs tmux
         - diff-so-fancy
+        - docker
+        - irssi
+        - mpd
+        - mpv
+        - ncmpcpp
         - neovim
         - node
         - p7zip
+        - ranger
+        - tree
         - zsh
 
     - name: "install homebrew casks"
       homebrew_cask: name={{ item }} state=present
       with_items:
-        - iterm2
         - google-chrome
+        - lastpass
+        - spotify
+        - vagrant
 
     - name: "upgrade all homebrew installs"
       homebrew: upgrade_all=yes
