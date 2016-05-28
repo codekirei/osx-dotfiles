@@ -3,16 +3,16 @@
   connection: local
   tasks:
 
-    - name: update homebrew
+    - name: "update homebrew"
       homebrew: update_homebrew=yes
 
-    - name: install homebrew taps
+    - name: "install homebrew taps"
       homebrew_tap: tap={{ item }} state=present
       with_items:
         - caskroom/cask
         - neovim/neovim
 
-    - name: install homebrew apps
+    - name: "install homebrew apps"
       homebrew: name={{ item }} state=present
       with_items:
         - ag
@@ -23,11 +23,21 @@
         - p7zip
         - zsh
 
-    - name: install homebrew casks
+    - name: "install homebrew casks"
       homebrew_cask: name={{ item }} state=present
       with_items:
         - iterm2
         - google-chrome
 
-    - name: upgrade all homebrew
+    - name: "upgrade all homebrew installs"
       homebrew: upgrade_all=yes
+
+    - block:
+      - name: "check for homebrew zsh in /etc/shells"
+        register: zsh_enabled
+        shell: cat /etc/shells | grep /usr/local/bin/zsh | wc -l
+        changed_when: False
+      - name: "add homebrew zsh in /etc/shells if need be"
+        become: "true"
+        shell: echo "/usr/local/bin/zsh" >> /etc/shells
+        when: zsh_enabled.stdout == "0"
