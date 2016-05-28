@@ -18,24 +18,28 @@
         - ag
         - bitlbee
         - byobu # this also installs tmux
+        - coreutils
         - diff-so-fancy
         - docker
         - irssi
         - mpd
         - mpv
-        - ncmpcpp
         - neovim
+        - ncmpc
         - node
         - p7zip
         - ranger
+        - tig
         - tree
         - zsh
 
     - name: "install homebrew casks"
       homebrew_cask: name={{ item }} state=present
       with_items:
+        - caffeine
         - google-chrome
         - lastpass
+        - slack
         - spotify
         - vagrant
 
