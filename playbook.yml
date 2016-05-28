@@ -1,0 +1,33 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+    - name: update homebrew
+      homebrew: update_homebrew=yes
+
+    - name: install homebrew taps
+      homebrew_tap: tap={{ item }} state=present
+      with_items:
+        - caskroom/cask
+        - neovim/neovim
+
+    - name: install homebrew apps
+      homebrew: name={{ item }} state=present
+      with_items:
+        - ag
+        - byobu # this also installs tmux
+        - diff-so-fancy
+        - neovim
+        - n
+        - p7zip
+        - zsh
+
+    - name: install homebrew casks
+      homebrew_cask: name={{ item }} state=present
+      with_items:
+        - iterm2
+        - google-chrome
+
+    - name: upgrade all homebrew
+      homebrew: upgrade_all=yes
