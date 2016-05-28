@@ -28,6 +28,7 @@
         - ncmpc
         - node
         - p7zip
+        - pow
         - ranger
         - tig
         - tree
@@ -46,12 +47,18 @@
     - name: "upgrade all homebrew installs"
       homebrew: upgrade_all=yes
 
-    - block:
+    - block: # enable zsh
+
       - name: "check for homebrew zsh in /etc/shells"
         register: zsh_enabled
         shell: cat /etc/shells | grep /usr/local/bin/zsh | wc -l
-        changed_when: False
-      - name: "add homebrew zsh in /etc/shells if need be"
-        become: "true"
-        shell: echo "/usr/local/bin/zsh" >> /etc/shells
+        changed_when: false
+
+      - name: "add homebrew zsh to /etc/shells"
         when: zsh_enabled.stdout == "0"
+        become: true
+        shell: echo "/usr/local/bin/zsh" >> /etc/shells
+
+      - name: "chsh to zsh"
+        when: ansible_env.SHELL != "/usr/local/bin/zsh"
+        command: /usr/bin/chsh -s /usr/local/bin/zsh
