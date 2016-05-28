@@ -19,7 +19,7 @@
         - byobu # this also installs tmux
         - diff-so-fancy
         - neovim
-        - n
+        - node
         - p7zip
         - zsh
 
