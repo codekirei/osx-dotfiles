@@ -1,0 +1,5 @@
+---
+- include: playbooks/homebrew.yml
+- include: playbooks/zsh.yml
+- include: playbooks/xdg_dirs.yml
+- include: playbooks/dotfiles.yml
