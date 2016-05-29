@@ -21,6 +21,7 @@
         - diff-so-fancy
         - docker
         - entr
+        - fzf
         - git
         - irssi
         - mpd
