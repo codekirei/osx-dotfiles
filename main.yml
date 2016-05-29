@@ -1,3 +1,4 @@
 ---
-- include: playbooks/homebrew.yml
-- include: playbooks/zsh.yml
+- include: tasks/homebrew.yml
+- include: tasks/zsh.yml
+- include: tasks/xdg_dirs.yml

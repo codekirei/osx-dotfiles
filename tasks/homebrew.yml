@@ -42,11 +42,10 @@
         - google-chrome
         - iterm2
         - lastpass
+        - mucommander
         - slack
         - spotify
         - vagrant
 
     - name: "upgrade all homebrew installs"
       homebrew: upgrade_all=yes
-
-
