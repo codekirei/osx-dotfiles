@@ -2,7 +2,6 @@
 - hosts: 127.0.0.1
   connection: local
   tasks:
-
     - name: "update homebrew"
       homebrew: update_homebrew=yes
 
@@ -22,6 +21,7 @@
         - diff-so-fancy
         - docker
         - entr
+        - git
         - irssi
         - mpd
         - mpv
@@ -49,18 +49,4 @@
     - name: "upgrade all homebrew installs"
       homebrew: upgrade_all=yes
 
-    - block: # enable zsh
 
-      - name: "check for homebrew zsh in /etc/shells"
-        register: zsh_enabled
-        shell: cat /etc/shells | grep /usr/local/bin/zsh | wc -l
-        changed_when: false
-
-      - name: "add homebrew zsh to /etc/shells"
-        when: zsh_enabled.stdout == "0"
-        become: true
-        shell: echo "/usr/local/bin/zsh" >> /etc/shells
-
-      - name: "chsh to zsh"
-        when: ansible_env.SHELL != "/usr/local/bin/zsh"
-        command: /usr/bin/chsh -s /usr/local/bin/zsh
