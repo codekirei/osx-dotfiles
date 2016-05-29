@@ -1,0 +1,19 @@
+path_append () {
+  PATHS=(${(s_:_)PATH})
+  IN_PATH=0
+  for (( i = 1; i <= $#PATHS; i++ )) do
+    [ "$1" = "$PATHS[i]" ] && IN_PATH=1
+  done
+  [ "$IN_PATH" -eq 0 ] && PATH="$PATH:$1"
+}
+
+path_prepend () {
+  PATHS=(${(s_:_)PATH})
+  IN_PATH=0
+  for (( i = 1; i <= $#PATHS; i++ )) do
+    [ "$1" = "$PATHS[i]" ] && IN_PATH=1
+  done
+  [ "$IN_PATH" -eq 0 ] && PATH="$1:$PATH"
+}
+
+# vim: ft=zsh

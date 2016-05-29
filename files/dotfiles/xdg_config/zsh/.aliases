@@ -60,4 +60,4 @@ alias ns='npm start -s'
 alias nt='npm test'
 alias ntg='npm test -s -- --grep '
 
-# vim: ft=sh
+# vim: ft=zsh
