@@ -1,6 +1,8 @@
 ---
 home: "{{ lookup('env', 'HOME') }}"
-xdg_config: "{{ home }}/.config"
+
+# XDG paths
 xdg_cache: "{{ home }}/.cache"
+xdg_config: "{{ home }}/.config"
 xdg_data: "{{ home }}/.data"
 xdg_runtime: "{{ home }}/.temp"

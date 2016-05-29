@@ -2,6 +2,11 @@
 - hosts: 127.0.0.1
   connection: local
   tasks:
-    - name: "create xdg config dir"
-      file: path="{{ xdg_config }}"
+    - name: "create xdg dirs"
+      file: path={{ item }}
             state=directory
+      with_items:
+        - "{{ xdg_cache }}"
+        - "{{ xdg_config }}"
+        - "{{ xdg_data }}"
+        - "{{ xdg_runtime }}"
