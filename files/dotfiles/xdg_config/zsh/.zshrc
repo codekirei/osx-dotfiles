@@ -1,0 +1,3 @@
+. "$ZDOTDIR"/.aliases
+
+PS1="> "

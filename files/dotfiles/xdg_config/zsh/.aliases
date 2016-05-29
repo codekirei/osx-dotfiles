@@ -1,0 +1,63 @@
+############################################################
+# GENERAL
+############################################################
+alias sudo='sudo '
+alias a='!!'
+alias c='ccat '
+alias e='nvim '
+alias l='gls -FX --color --group-directories-first'
+alias r='ranger'
+alias rm='rm -i'
+
+############################################################
+# CD
+############################################################
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
+alias ..4='cd ../../../..'
+alias ..5='cd ../../../../..'
+
+############################################################
+# GIT
+############################################################
+alias ga='git add -A -v'
+alias gb='git checkout ' # branch
+alias gc='git commit -m '
+#alias gd=
+#alias ge=
+#alias gf=
+alias gg='git grep '
+alias gh='git help '
+alias gi='git status -s' # info
+#alias gj=
+#alias gk=
+alias gl='git shortlog --reverse | head -n 11'
+alias gm='git merge'
+alias gn='git checkout -b ' # new
+#go -- taken by golang
+alias gp='git push'
+#alias gq=
+alias gr='git remote'
+alias gs='git stash'
+alias gt='git branch -a' # tree
+alias gu='git pull' # update
+alias gv='git tag ' # version
+alias gw='git blame ' # who
+alias gx='git rm --cached '
+#alias gy=
+alias gz='git clean -i' # z -> undo
+
+############################################################
+# NODE
+############################################################
+alias nd='npm i --save-dev '
+alias ng='npm i -g '
+alias ni='npm i --save '
+alias nl='npm ls'
+alias nr='npm run -s '
+alias nrv='npm run '
+alias ns='npm start -s'
+alias nt='npm test'
+alias ntg='npm test -s -- --grep '
+
+# vim: ft=sh

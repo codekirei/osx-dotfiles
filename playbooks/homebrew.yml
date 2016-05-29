@@ -17,6 +17,7 @@
         - ag
         - bitlbee
         - byobu # this also installs tmux
+        - ccat
         - coreutils
         - diff-so-fancy
         - docker
