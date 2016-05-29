@@ -10,6 +10,17 @@
 
     - name: "symlink $HOME dotfiles"
       file: state=link
-            dest={{ home }}/{{ item | basename }}
             src={{ item }}
+            dest={{ home }}/{{ item | basename }}
       with_items: "{{ home_dotfiles.stdout_lines }}"
+
+    - name: "gather $XDG_CONFIG_HOME dotfiles"
+      shell: ls -d -1 {{ playbook_dir }}/../files/dotfiles/xdg_config/* | xargs realpath
+      register: xdg_dotfiles
+      changed_when: false
+
+    - name: "symlink $XDG_CONFIG_HOME dotfiles"
+      file: state=link
+            src={{ item }}
+            dest={{ xdg_config }}/{{ item | basename }}
+      with_items: "{{ xdg_dotfiles.stdout_lines }}"

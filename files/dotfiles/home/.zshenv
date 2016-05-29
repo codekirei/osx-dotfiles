@@ -44,7 +44,7 @@ export NPM_CONFIG_SAVE_EXACT="true"
 ############################################################
 
 # ANSIBLE
-export ANSIBLE_RETRY_FILES_SAVE_PATH="$HOME"/.temp
+export ANSIBLE_CONFIG="$XDG_CONFIG_HOME"/ansible/ansible.cfg
 
 # FZF
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
