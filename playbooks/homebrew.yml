@@ -9,6 +9,7 @@
       homebrew_tap: tap={{ item }} state=present
       with_items:
         - caskroom/cask
+        - caskroom/versions
         - neovim/neovim
 
     - name: "install homebrew apps"
@@ -42,7 +43,7 @@
       with_items:
         - caffeine
         - google-chrome
-        - iterm2
+        - iterm2-beta
         - lastpass
         - slack
         - spotify
