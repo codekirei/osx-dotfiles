@@ -1,6 +1,10 @@
+- kwm vs amethyst vs phoenix
 - prompt (colorize path? use hook and string substitution?)
 - zsh in general
 - ls dircolors (or alternative?)
 - osx defaults
 - clean up home dir
 - trelew
+- tmuxp?
+- xonsh?
+- quicksilver?
