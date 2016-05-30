@@ -2,7 +2,6 @@
 # GENERAL
 ############################################################
 alias sudo='sudo '
-alias a='!!'
 alias c='ccat '
 alias cdi='touch "$CDI" && ranger --choosedir="$CDI"; cd $(cat "$CDI"); \rm "$CDI"'
 alias e='nvim '
@@ -64,4 +63,8 @@ alias ns='npm start -s'
 alias nt='npm test'
 alias ntg='npm test -s -- --grep '
 
+############################################################
+# ANSIBLE
+############################################################
+alias play='ansible-playbook '
 # vim: ft=zsh

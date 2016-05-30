@@ -24,6 +24,7 @@ chpwd() {
 cleanhome () {
   local TO_CLEAN=(
     "$HOME"/.DS_Store
+    "$HOME"/Desktop/.DS_Store
     "$HOME"/Documents
     "$HOME"/Downloads
     "$HOME"/Movies

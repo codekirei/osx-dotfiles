@@ -1,0 +1,15 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+    - name: "gather $HOME dotfiles"
+      shell: find {{ playbook_dir }}/../../files/dotfiles/home | tail -n +2 | xargs realpath
+      register: home_dotfiles
+      changed_when: false
+
+    - name: "symlink $HOME dotfiles"
+      file: state=link
+            src={{ item }}
+            dest={{ home }}/{{ item | basename }}
+      with_items: "{{ home_dotfiles.stdout_lines }}"

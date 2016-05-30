@@ -1,0 +1,22 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+    - name: "create $XDG_CONFIG_HOME/nvim/autoload"
+      file: state=directory
+            path={{ xdg_config }}/nvim/autoload
+
+    - name: "get init.vim source path"
+      shell: find {{ playbook_dir }}/../../files/dotfiles/nvim/init.vim | xargs realpath
+      register: nvim_init
+      changed_when: false
+
+    - name: "symlink init.vim into $XDG_CONFIG_HOME/nvim"
+      file: state=link
+            src={{ nvim_init.stdout }}
+            dest={{ xdg_config }}/nvim/init.vim
+
+    - name: "download plug.vim"
+      get_url: url=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+               dest={{ xdg_config }}/nvim/autoload/plug.vim

@@ -4,6 +4,7 @@
 . "$HOME"/.secret
 . "$ZDOTDIR"/.aliases
 . "$ZDOTDIR"/.functions
+. "$ZDOTDIR"/.opts
 
 ############################################################
 # PATH
@@ -16,3 +17,5 @@ path_prepend /usr/local/bin
 PS1="> "
 
 # vim: ft=zsh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

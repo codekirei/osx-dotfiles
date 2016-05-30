@@ -2,4 +2,6 @@
 - include: playbooks/homebrew.yml
 - include: playbooks/zsh.yml
 - include: playbooks/xdg_dirs.yml
-- include: playbooks/dotfiles.yml
+- include: playbooks/dotfiles/home.yml
+- include: playbooks/dotfiles/xdg_config.yml
+- include: playbooks/dotfiles/nvim.yml
