@@ -14,8 +14,11 @@ path_prepend /usr/local/bin
 ############################################################
 # PROMPT
 ############################################################
-PS1="> "
+PROMPT="
+%U%~%u
+> "
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # vim: ft=zsh
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

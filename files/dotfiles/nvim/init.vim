@@ -204,7 +204,7 @@ set smartcase
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 syntax on
 set background=dark
-color base16-paraiso
+color base16-monokai
 
 let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
 let g:rainbow#blacklist= [14, 7]
@@ -213,4 +213,4 @@ set list
 set listchars=tab:>-,trail:_
 
 highlight SpecialKey guifg=red
-highlight Normal guibg=#111111
+highlight Normal guibg=#000
