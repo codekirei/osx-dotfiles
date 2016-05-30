@@ -4,10 +4,14 @@
 alias sudo='sudo '
 alias a='!!'
 alias c='ccat '
+alias cdi='touch "$CDI" && ranger --choosedir="$CDI"; cd $(cat "$CDI"); \rm "$CDI"'
 alias e='nvim '
 alias l='gls -FX --color --group-directories-first'
+alias la='l -A'
+alias ll='l -Ao'
 alias r='ranger'
 alias rm='rm -i'
+alias rlz='. "$XDG_CONFIG_HOME"/zsh/.zshrc && . "$HOME"/.zshenv && clear'
 
 ############################################################
 # CD

@@ -16,4 +16,23 @@ path_prepend () {
   [ "$IN_PATH" -eq 0 ] && PATH="$1:$PATH"
 }
 
+chpwd() {
+  emulate -L zsh
+  la
+}
+
+cleanhome () {
+  local TO_CLEAN=(
+    "$HOME"/.DS_Store
+    "$HOME"/Documents
+    "$HOME"/Downloads
+    "$HOME"/Movies
+    "$HOME"/Music
+    "$HOME"/Pictures
+  )
+  for (( i = 1; i <= $#TO_CLEAN; i++ )) do
+    [ -e "$TO_CLEAN[i]" ] && sudo \rm -r "$TO_CLEAN[i]"
+  done
+}
+
 # vim: ft=zsh
