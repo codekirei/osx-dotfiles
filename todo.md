@@ -3,3 +3,4 @@
 - ls dircolors (or alternative?)
 - osx defaults
 - clean up home dir
+- trelew

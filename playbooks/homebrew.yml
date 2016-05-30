@@ -41,12 +41,18 @@
     - name: "install homebrew casks"
       homebrew_cask: name={{ item }} state=present
       with_items:
+        - alfred
+        - bartender
+        - bettertouchtool
         - caffeine
+        - dash
         - google-chrome
         - iterm2-beta
         - lastpass
+        - postbox
         - slack
         - spotify
+        - textexpander
         - vagrant
 
     - name: "upgrade all homebrew installs"
