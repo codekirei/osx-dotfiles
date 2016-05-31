@@ -112,6 +112,10 @@ nnoremap s <C-w>
 map Q <Nop>
 nnoremap Y y$
 
+" CLIPBOARD
+"-------------------------------------------------------------------------------
+vnoremap <silent> <leader>y :<CR>:let @a=@" \| execute "normal! vgvy" \| let res=system("pbcopy", @") \| let @"=@a<CR>
+
 " PLUGINS
 "-------------------------------------------------------------------------------
 nmap ga <Plug>(EasyAlign)
