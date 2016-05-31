@@ -11,6 +11,7 @@ alias ll='l -Ao'
 alias r='ranger'
 alias rm='rm -i'
 alias rlz='. "$XDG_CONFIG_HOME"/zsh/.zshrc && . "$HOME"/.zshenv && clear'
+alias syu='play -K "$HOME"/code/dotfiles/osx-dotfiles/site.yml'
 
 ############################################################
 # CD
