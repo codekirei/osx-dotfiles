@@ -1,0 +1,13 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  tasks:
+
+    - name: "create pow hosts dir"
+      file: state=directory
+            path="~/Library/Application Support/Pow/Hosts"
+
+    - name: "symlink pow hosts dir to $XDG_CONFIG_HOME/pow"
+      file: state=link
+            src="~/Library/Application Support/Pow/Hosts"
+            dest={{ xdg_config }}/pow

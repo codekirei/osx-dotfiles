@@ -1,3 +1,4 @@
+- finish pow dotfiles task (brew info pow for details)
 - prompt (colorize path? use hook and string substitution?)
 - zsh in general
 - ls dircolors (or alternative?)

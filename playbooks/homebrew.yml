@@ -16,6 +16,7 @@
       homebrew: name={{ item }} state=present
       with_items:
         - ag
+        - awscli
         - bitlbee
         - byobu # this also installs tmux
         - ccat
