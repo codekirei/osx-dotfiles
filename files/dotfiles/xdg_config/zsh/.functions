@@ -21,7 +21,7 @@ chpwd() {
   la
 }
 
-cleanhome () {
+dejunk () {
   local TO_CLEAN=(
     "$HOME"/.DS_Store
     "$HOME"/Desktop/.DS_Store
