@@ -31,7 +31,7 @@ export LUAROCKS_CONFIG="$XDG_CONFIG_HOME"/luarocks/config.lua
 # NODE
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
 export NPM_CONFIG_LOGLEVEL="error"
-export NPM_CONFIG_PREFIX="$HOME"/code/node/npm
+#export NPM_CONFIG_PREFIX="$HOME"/code/node/npm
 export NPM_CONFIG_PROGRESS="false"
 export NPM_CONFIG_SAVE_EXACT="true"
 

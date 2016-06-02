@@ -39,6 +39,7 @@
         - ranger
         - tig
         - tree
+        - wget
         - zsh
 
     - name: "install homebrew casks"
@@ -59,6 +60,7 @@
         - macclean
         - nylas-n1
         - phoenix
+        - screenhero
         - slack
         - spotify
         - textexpander
