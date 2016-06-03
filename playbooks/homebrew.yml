@@ -46,6 +46,7 @@
       homebrew_cask: name={{ item }} state=present
       with_items:
         - alfred
+        - atext
         - bartender
         - bettertouchtool
         - caffeine
@@ -63,11 +64,11 @@
         - screenhero
         - slack
         - spotify
-        - textexpander
         - ubersicht
         - vagrant
         - virtualbox
         - viscosity
+        - zoomus
 
     - name: "upgrade all homebrew installs"
       homebrew: upgrade_all=yes
