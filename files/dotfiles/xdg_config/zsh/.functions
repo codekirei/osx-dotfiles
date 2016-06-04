@@ -18,7 +18,7 @@ path_prepend () {
 
 chpwd() {
   emulate -L zsh
-  la
+  l
 }
 
 dejunk () {
