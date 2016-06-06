@@ -7,3 +7,8 @@
 - tmuxp?
 - quicksilver?
 - https://github.com/koekeishiya/nerdbar.widget
+- language specific apps
+  - go
+  - node
+  - python
+  - lua
