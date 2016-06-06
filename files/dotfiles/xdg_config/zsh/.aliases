@@ -9,7 +9,6 @@ alias e='nvim '
 alias l="$LS -A"
 alias la='l'
 alias ll='l -o'
-alias ls="$LS"
 alias r='ranger'
 alias rm='rm -i'
 alias rlz='. "$XDG_CONFIG_HOME"/zsh/.zshrc && . "$HOME"/.zshenv && clear'
