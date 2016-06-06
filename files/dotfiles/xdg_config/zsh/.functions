@@ -22,7 +22,8 @@ chpwd() {
 }
 
 dejunk () {
-  local TO_CLEAN=(
+  typeset -a TO_CLEAN
+  TO_CLEAN=(
     "$HOME"/.DS_Store
     "$HOME"/Desktop/.DS_Store
     "$HOME"/Documents
@@ -31,9 +32,16 @@ dejunk () {
     "$HOME"/Music
     "$HOME"/Pictures
     "$HOME"/.ansible
+    "$HOME"/.node_repl_history
+    .v8flags.*.json
+    .bashrc
+    .git-credential-cache
   )
   for (( i = 1; i <= $#TO_CLEAN; i++ )) do
-    [ -e "$TO_CLEAN[i]" ] && sudo \rm -r "$TO_CLEAN[i]"
+    if [[ -e "$TO_CLEAN[i]" ]] then
+      # echo "$TO_CLEAN[i]"
+      sudo \rm -r "$TO_CLEAN[i]"
+    fi
   done
 }
 
