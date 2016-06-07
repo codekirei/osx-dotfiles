@@ -11,6 +11,7 @@
 ############################################################
 path_prepend /usr/local/bin
 path_prepend /usr/local/sbin
+path_prepend "$HOME"/code/sh/bin
 
 ############################################################
 # PROMPT

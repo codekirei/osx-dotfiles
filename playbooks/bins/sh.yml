@@ -1,0 +1,21 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  vars:
+    sh_bin_path: "{{ home }}/code/sh/bin"
+  tasks:
+
+    - name: "create sh_bin_path"
+      file: state=directory
+            path={{ sh_bin_path }}
+
+    - name: "gather shell bin files"
+      shell: ls -d -1 {{ playbook_dir }}/../../files/bins/sh/* | xargs realpath
+      register: sh_bins
+      changed_when: false
+
+    - name: "symlink sh_bins into sh_bin_path"
+      file: state=link
+            src={{ item }}
+            dest={{ sh_bin_path }}/{{ item | basename }}
+      with_items: "{{ sh_bins.stdout_lines }}"
