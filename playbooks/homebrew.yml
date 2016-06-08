@@ -28,6 +28,7 @@
         - docker-machine
         - entr
         - fzf
+        - gcal
         - git
         - hub
         - irssi
