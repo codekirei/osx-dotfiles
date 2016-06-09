@@ -27,6 +27,7 @@
         - docker-compose
         - docker-machine
         - entr
+        - fswatch
         - fzf
         - gcal
         - git

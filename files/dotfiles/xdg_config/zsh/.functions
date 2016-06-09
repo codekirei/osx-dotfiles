@@ -33,6 +33,9 @@ dejunk () {
     "$HOME"/Pictures
     "$HOME"/.ansible
     "$HOME"/.node_repl_history
+    "$HOME"/.temp/.DS_Store
+    "$HOME"/.temp/screenshots/*
+    "$HOME"/.temp/screenshots/.DS_Store
     .v8flags.*.json
     .bashrc
     .git-credential-cache
