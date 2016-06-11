@@ -1,15 +1,18 @@
 - create screenshot dir and add cleanup to dejunk
+  - new ss script
 - finish pow dotfiles task (brew info pow for details)
 - prompt (colorize path? use hook and string substitution?)
 - zsh in general
 - ls dircolors (or alternative?)
 - osx defaults
-- trelew
-- tmuxp?
+- tmuxp vs tmuxinator
 - quicksilver?
+- taskwarrior?
 - https://github.com/koekeishiya/nerdbar.widget
 - language specific apps
   - go
   - node
+    - trelew?
   - python
   - lua
+  - sh
