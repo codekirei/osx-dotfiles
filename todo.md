@@ -16,3 +16,4 @@
   - python
   - lua
   - sh
+  - rust
