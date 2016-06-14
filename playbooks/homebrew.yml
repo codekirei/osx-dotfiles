@@ -21,6 +21,7 @@
         - bitlbee
         - byobu # this also installs tmux
         - ccat
+        - clib
         - coreutils
         - diff-so-fancy
         - docker
@@ -71,6 +72,7 @@
         - fastscripts
         - google-chrome
         - gpgtools
+        - hammerspoon
         - iterm2-beta
         - itsycal
         - lastpass
