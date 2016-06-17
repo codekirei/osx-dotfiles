@@ -18,3 +18,4 @@
   - lua
   - sh
   - rust
+  - ruby
