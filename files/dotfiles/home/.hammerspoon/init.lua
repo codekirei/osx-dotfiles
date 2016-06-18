@@ -14,3 +14,14 @@ hs.hotkey.bind(
     hs.reload()
   end
 )
+
+-- move window left
+hs.hotkey.bind(
+  {"cmd", "ctrl"}, "H",
+  function()
+    local win = hs.window.focusedWindow()
+    local frame = win:frame()
+    frame.x = frame.x - 10
+    win:setFrame(frame)
+  end
+)
