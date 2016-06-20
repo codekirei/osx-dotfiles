@@ -45,7 +45,7 @@ alias gg='git grep '
 alias gh='git help '
 alias gi='git status -s' # info
 #alias gj=
-#alias gk=
+alias gk='git clean -i'
 alias gl='git shortlog --reverse | head -n 11'
 alias gm='git merge'
 alias gn='git checkout -b ' # new
@@ -60,7 +60,7 @@ alias gv='git tag ' # version
 alias gw='git blame ' # who
 alias gx='git rm --cached '
 #alias gy=
-alias gz='git clean -i' # z -> undo
+alias gz='git reset'
 
 ############################################################
 # NODE
