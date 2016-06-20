@@ -52,4 +52,8 @@ pwd_short () {
   echo $(pwd | sed "s,^$HOME,~,")
 }
 
+ge () {
+  git push origin --delete "$1" && git branch -d "$1"
+}
+
 # vim: ft=zsh
