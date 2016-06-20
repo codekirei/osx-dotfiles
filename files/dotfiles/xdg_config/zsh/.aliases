@@ -74,6 +74,10 @@ alias nrv='npm run '
 alias ns='npm start -s'
 alias nt='npm test'
 alias ntg='npm test -s -- --grep '
+alias nu='nvm use --silent'
+alias nuc='nvm current'
+alias nud='nvm use default --silent'
+alias nul='nvm ls'
 
 ############################################################
 # ANSIBLE

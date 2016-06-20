@@ -52,6 +52,7 @@ pwd_short () {
   echo $(pwd | sed "s,^$HOME,~,")
 }
 
+# git evict -- delete branch locally and on origin
 ge () {
   git push origin --delete "$1" && git branch -d "$1"
 }
