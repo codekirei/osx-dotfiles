@@ -37,6 +37,7 @@ alias dzr='dc run web python manage.py'
 alias ga='git add -A -v'
 alias gb='git checkout ' # branch
 alias gc='git commit -m '
+alias gcl='git commit'
 alias gd='git diff'
 #alias ge=
 #alias gf=
