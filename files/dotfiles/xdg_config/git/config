@@ -7,5 +7,6 @@
 	helper = cache --timeout=36000
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	excludesfile = /Users/jacob/.config/git/gitignore_global
 [branch]
 	autosetuprebase = always
