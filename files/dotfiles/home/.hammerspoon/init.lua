@@ -4,41 +4,54 @@
 scale = 50
 
 -- modifiers
--- MOD1 = { 'cmd'}
--- MOD2 = { 'ctrl' }
--- MOD3 = { 'alt'}
--- MOD4 = { 'shift' }
--- MOD12 = { MOD1, MOD2 }
--- MOD13
--- MOD14
--- MOD123
--- MOD1234
--- MOD124
+A = 'alt'
+C = 'ctrl'
+M = 'cmd'
+S = 'shift'
+
+------------------------------------------------------------
+-- declare keybinds
+------------------------------------------------------------
+binds = {
+  window = {
+    grow = {
+      mods = { 'ctrl', 'shift', 'cmd' },
+      keys = {
+        H = { size = { w = 1 }, pos = { x = -1 } },
+        L = { size = { w = 1 } },
+      },
+    },
+  },
+}
 
 ------------------------------------------------------------
 -- meta
 ------------------------------------------------------------
-hs.hotkey.bind(
-  {'cmd', 'alt', 'ctrl'}, 'R',
+hs.hotkey.bind({C,A,M}, 'R',
   function()
-    hs.reload()
-    hs.notify.new({
+
+    notification = {
       title='Hammerspoon',
       informativeText='Config reloaded!',
-    }):send()
+    }
+
+    hs.reload()
+    hs.notify.new(notification):send()
   end
 )
 
 ------------------------------------------------------------
--- move window
+-- window functions
 ------------------------------------------------------------
 function moveWindow(delta)
-  local window = hs.window.focusedWindow()
-  local frame = window:frame()
-  for k,v in pairs(delta) do
-    frame[k] = frame[k] + v * scale
+  return function()
+    local window = hs.window.focusedWindow()
+    local frame = window:frame()
+    for k,v in pairs(delta) do
+      frame[k] = frame[k] + v * scale
+    end
+    window:setFrame(frame)
   end
-  window:setFrame(frame)
 end
 
 for k,v in pairs({
@@ -47,42 +60,29 @@ for k,v in pairs({
   K = { y = -1 },
   L = { x = 1 },
 }) do
-  hs.hotkey.bind(
-    {'cmd', 'ctrl'}, k,
-    function()
-      moveWindow(v)
-    end
-  )
+  hs.hotkey.bind({C,M}, k, moveWindow(v))
 end
 
-------------------------------------------------------------
--- scale window
-------------------------------------------------------------
 function scaleWindow(delta)
-  if delta.pos then
-    moveWindow(delta.pos)
-  end
-
-  local window = hs.window.focusedWindow()
-  local size = window:size()
-  for k,v in pairs(delta.size) do
-    size[k] = size[k] + v * scale
-  end
-  window:setSize(size)
-end
-
-CMD_CTRL_SHIFT = { 'cmd', 'ctrl', 'shift' }
-
--- grow
-for k,v in pairs({
-  H = { size = { w = 1 }, pos = { x = -1 } },
-  L = { size = { w = 1 } },
-}) do
-  hs.hotkey.bind(
-    {'cmd', 'ctrl', 'shift'}, k,
-    function()
-      scaleWindow(v)
+  return function()
+    if delta.pos then
+      moveWindow(delta.pos)()
     end
-  )
+
+    local window = hs.window.focusedWindow()
+    local size = window:size()
+    for k,v in pairs(delta.size) do
+      size[k] = size[k] + v * scale
+    end
+    window:setSize(size)
+  end
 end
 
+------------------------------------------------------------
+-- assign keybinds
+------------------------------------------------------------
+
+-- window
+for k,v in pairs(binds.window.grow.keys) do
+  hs.hotkey.bind(binds.window.grow.mods, k, scaleWindow(v))
+end
