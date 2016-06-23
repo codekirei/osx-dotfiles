@@ -13,7 +13,9 @@ S = 'shift'
 -- declare keybinds
 ------------------------------------------------------------
 binds = {
+
   window = {
+
     grow = {
       mods = { 'ctrl', 'shift', 'cmd' },
       keys = {
@@ -21,6 +23,17 @@ binds = {
         L = { size = { w = 1 } },
       },
     },
+
+    move = {
+      mods = { 'ctrl', 'cmd' },
+      keys = {
+        H = { x = -1 },
+        J = { y = 1 },
+        K = { y = -1 },
+        L = { x = 1 },
+      },
+    },
+
   },
 }
 
@@ -54,15 +67,6 @@ function moveWindow(delta)
   end
 end
 
-for k,v in pairs({
-  H = { x = -1 },
-  J = { y = 1 },
-  K = { y = -1 },
-  L = { x = 1 },
-}) do
-  hs.hotkey.bind({C,M}, k, moveWindow(v))
-end
-
 function scaleWindow(delta)
   return function()
     if delta.pos then
@@ -83,6 +87,9 @@ end
 ------------------------------------------------------------
 
 -- window
+for k,v in pairs(binds.window.move.keys) do
+  hs.hotkey.bind(binds.window.move.mods, k, moveWindow(v))
+end
 for k,v in pairs(binds.window.grow.keys) do
   hs.hotkey.bind(binds.window.grow.mods, k, scaleWindow(v))
 end
