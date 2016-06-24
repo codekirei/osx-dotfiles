@@ -1,8 +1,6 @@
 ------------------------------------------------------------
 -- globals
 ------------------------------------------------------------
-scale = 50
-
 -- modifiers
 A = 'alt'
 C = 'ctrl'
@@ -19,18 +17,20 @@ binds = {
     grow = {
       mods = { 'ctrl', 'shift', 'cmd' },
       keys = {
-        H = { size = { w = 1 }, pos = { x = -1 } },
-        L = { size = { w = 1 } },
+        H = { size = { w = 50 }, pos = { x = -48 } },
+        J = { size = { h = 50 } },
+        K = { size = { h = 50 }, pos = { y = -36 } },
+        L = { size = { w = 50 } },
       },
     },
 
     move = {
       mods = { 'ctrl', 'cmd' },
       keys = {
-        H = { x = -1 },
-        J = { y = 1 },
-        K = { y = -1 },
-        L = { x = 1 },
+        H = { x = -50 },
+        J = { y = 50 },
+        K = { y = -50 },
+        L = { x = 50 },
       },
     },
 
@@ -40,7 +40,7 @@ binds = {
 ------------------------------------------------------------
 -- meta
 ------------------------------------------------------------
-hs.hotkey.bind({C,A,M}, 'R',
+hs.hotkey.bind({C,S,M}, 'R',
   function()
 
     notification = {
@@ -61,7 +61,7 @@ function moveWindow(delta)
     local window = hs.window.focusedWindow()
     local frame = window:frame()
     for k,v in pairs(delta) do
-      frame[k] = frame[k] + v * scale
+      frame[k] = frame[k] + v
     end
     window:setFrame(frame)
   end
@@ -76,7 +76,7 @@ function scaleWindow(delta)
     local window = hs.window.focusedWindow()
     local size = window:size()
     for k,v in pairs(delta.size) do
-      size[k] = size[k] + v * scale
+      size[k] = size[k] + v
     end
     window:setSize(size)
   end
