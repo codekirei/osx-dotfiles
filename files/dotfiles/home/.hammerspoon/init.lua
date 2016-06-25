@@ -1,16 +1,16 @@
 ------------------------------------------------------------
--- globals
-------------------------------------------------------------
--- modifiers
-A = 'alt'
-C = 'ctrl'
-M = 'cmd'
-S = 'shift'
-
-------------------------------------------------------------
--- declare keybinds
+-- binds
 ------------------------------------------------------------
 binds = {
+
+  meta = {
+
+    reload = {
+      mods = { 'ctrl', 'shift', 'cmd' },
+      key = 'R',
+    },
+
+  },
 
   window = {
 
@@ -35,61 +35,71 @@ binds = {
     },
 
   },
+
 }
 
 ------------------------------------------------------------
--- meta
+-- fns
 ------------------------------------------------------------
-hs.hotkey.bind({C,S,M}, 'R',
-  function()
+fns = {
 
-    notification = {
-      title='Hammerspoon',
-      informativeText='Config reloaded!',
-    }
+  meta = {
 
-    hs.reload()
-    hs.notify.new(notification):send()
-  end
-)
+    reload = function()
+      notification = {
+        title='Hammerspoon',
+        informativeText='Config reloaded!',
+      }
+      hs.reload()
+      hs.notify.new(notification):send()
+    end,
+
+  },
+
+  window = {
+
+    move = function(delta)
+      return function()
+        local window = hs.window.focusedWindow()
+        local frame = window:frame()
+        for k,v in pairs(delta) do
+          frame[k] = frame[k] + v
+        end
+        window:setFrame(frame)
+      end
+    end,
+
+    scale = function(delta)
+      return function()
+        if delta.pos then
+          fns.window.move(delta.pos)()
+        end
+        local window = hs.window.focusedWindow()
+        local size = window:size()
+        for k,v in pairs(delta.size) do
+          size[k] = size[k] + v
+        end
+        window:setSize(size)
+      end
+    end,
+
+  },
+
+}
 
 ------------------------------------------------------------
--- window functions
+-- glue
 ------------------------------------------------------------
-function moveWindow(delta)
-  return function()
-    local window = hs.window.focusedWindow()
-    local frame = window:frame()
-    for k,v in pairs(delta) do
-      frame[k] = frame[k] + v
-    end
-    window:setFrame(frame)
-  end
-end
 
-function scaleWindow(delta)
-  return function()
-    if delta.pos then
-      moveWindow(delta.pos)()
-    end
+-- TODO: generate these declarations programmatically
 
-    local window = hs.window.focusedWindow()
-    local size = window:size()
-    for k,v in pairs(delta.size) do
-      size[k] = size[k] + v
-    end
-    window:setSize(size)
-  end
-end
-
-------------------------------------------------------------
--- assign keybinds
-------------------------------------------------------------
+-- hammerspoon
+hs.hotkey.bind(binds.meta.reload.mods, binds.meta.reload.key, fns.meta.reload)
 
 -- window
 for k,v in pairs(binds.window.move.keys) do
-  hs.hotkey.bind(binds.window.move.mods, k, moveWindow(v))
+  hs.hotkey.bind(binds.window.move.mods, k, fns.window.move(v))
 end
 for k,v in pairs(binds.window.grow.keys) do
-  hs.hotkey.bind(binds.window.grow.mods, k, scaleWindow(v))
+  hs.hotkey.bind(binds.window.grow.mods, k, fns.window.scale(v))
 end
