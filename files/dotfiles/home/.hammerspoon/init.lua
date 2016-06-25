@@ -15,12 +15,22 @@ binds = {
   window = {
 
     grow = {
-      mods = { 'ctrl', 'shift', 'cmd' },
+      mods = { 'ctrl', 'shift', 'alt' },
       keys = {
         H = { size = { w = 50 }, pos = { x = -48 } },
         J = { size = { h = 50 } },
         K = { size = { h = 50 }, pos = { y = -36 } },
         L = { size = { w = 50 } },
+      },
+    },
+
+    shrink = {
+      mods = { 'ctrl', 'alt' },
+      keys = {
+        H = { size = { w = -50 } },
+        J = { size = { h = -50 }, pos = { y = 50 } },
+        K = { size = { h = -50 } },
+        L = { size = { w = -50 }, pos = { x = 50 } },
       },
     },
 
@@ -102,4 +112,7 @@ for k,v in pairs(binds.window.move.keys) do
 end
 for k,v in pairs(binds.window.grow.keys) do
   hs.hotkey.bind(binds.window.grow.mods, k, fns.window.scale(v))
+end
+for k,v in pairs(binds.window.shrink.keys) do
+  hs.hotkey.bind(binds.window.shrink.mods, k, fns.window.scale(v))
 end
