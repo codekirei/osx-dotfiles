@@ -44,6 +44,11 @@ binds = {
       },
     },
 
+    maximize = {
+      mods = { 'ctrl', 'cmd' },
+      key = 'F',
+    },
+
   },
 
 }
@@ -93,6 +98,10 @@ fns = {
       end
     end,
 
+    maximize = function()
+      hs.window.focusedWindow():maximize(0)
+    end,
+
   },
 
 }
@@ -116,3 +125,4 @@ end
 for k,v in pairs(binds.window.shrink.keys) do
   hs.hotkey.bind(binds.window.shrink.mods, k, fns.window.scale(v))
 end
+hs.hotkey.bind(binds.window.maximize.mods, binds.window.maximize.key, fns.window.maximize)
