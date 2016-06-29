@@ -14,35 +14,45 @@ binds = {
 
   window = {
 
-    grow = {
-      mods = { 'ctrl', 'shift', 'alt' },
-      keys = {
-        H = { size = { w = 50 }, pos = { x = -48 } },
-        J = { size = { h = 50 } },
-        K = { size = { h = 50 }, pos = { y = -36 } },
-        L = { size = { w = 50 } },
-      },
-    },
-
-    shrink = {
-      mods = { 'ctrl', 'alt' },
-      keys = {
-        H = { size = { w = -50 } },
-        J = { size = { h = -50 }, pos = { y = 50 } },
-        K = { size = { h = -50 } },
-        L = { size = { w = -50 }, pos = { x = 50 } },
-      },
-    },
-
-    move = {
+    half = {
       mods = { 'ctrl', 'cmd' },
       keys = {
-        H = { x = -50 },
-        J = { y = 50 },
-        K = { y = -50 },
-        L = { x = 50 },
+        H = {   0,   0, 0.5,   1 },
+        J = {   0, 0.5,   1, 0.5 },
+        K = {   0,   0,   1, 0.5 },
+        L = { 0.5,   0, 0.5,   1 },
       },
     },
+
+    -- grow = {
+    --   mods = { 'ctrl', 'shift', 'alt' },
+    --   keys = {
+    --     H = { size = { w = 50 }, pos = { x = -48 } },
+    --     J = { size = { h = 50 } },
+    --     K = { size = { h = 50 }, pos = { y = -36 } },
+    --     L = { size = { w = 50 } },
+    --   },
+    -- },
+    --
+    -- shrink = {
+    --   mods = { 'ctrl', 'alt' },
+    --   keys = {
+    --     H = { size = { w = -50 } },
+    --     J = { size = { h = -50 }, pos = { y = 50 } },
+    --     K = { size = { h = -50 } },
+    --     L = { size = { w = -50 }, pos = { x = 50 } },
+    --   },
+    -- },
+    --
+    -- move = {
+    --   mods = { 'ctrl', 'cmd' },
+    --   keys = {
+    --     H = { x = -50 },
+    --     J = { y = 50 },
+    --     K = { y = -50 },
+    --     L = { x = 50 },
+    --   },
+    -- },
 
     maximize = {
       mods = { 'ctrl', 'cmd' },
@@ -72,6 +82,12 @@ fns = {
   },
 
   window = {
+
+    half = function(rect_table)
+      return function()
+        hs.window.focusedWindow():moveToUnit(hs.geometry.unitrect(rect_table), 0)
+      end
+    end,
 
     move = function(delta)
       return function()
@@ -116,13 +132,16 @@ fns = {
 hs.hotkey.bind(binds.meta.reload.mods, binds.meta.reload.key, fns.meta.reload)
 
 -- window
-for k,v in pairs(binds.window.move.keys) do
-  hs.hotkey.bind(binds.window.move.mods, k, fns.window.move(v))
-end
-for k,v in pairs(binds.window.grow.keys) do
-  hs.hotkey.bind(binds.window.grow.mods, k, fns.window.scale(v))
-end
-for k,v in pairs(binds.window.shrink.keys) do
-  hs.hotkey.bind(binds.window.shrink.mods, k, fns.window.scale(v))
+-- for k,v in pairs(binds.window.move.keys) do
+--   hs.hotkey.bind(binds.window.move.mods, k, fns.window.move(v))
+-- end
+-- for k,v in pairs(binds.window.grow.keys) do
+--   hs.hotkey.bind(binds.window.grow.mods, k, fns.window.scale(v))
+-- end
+-- for k,v in pairs(binds.window.shrink.keys) do
+--   hs.hotkey.bind(binds.window.shrink.mods, k, fns.window.scale(v))
+-- end
+for k,v in pairs(binds.window.half.keys) do
+  hs.hotkey.bind(binds.window.half.mods, k, fns.window.half(v))
 end
 hs.hotkey.bind(binds.window.maximize.mods, binds.window.maximize.key, fns.window.maximize)
