@@ -1,3 +1,4 @@
+- fix pow
 - hammerspoon config
 - create screenshot dir and add cleanup to dejunk
   - new ss script
