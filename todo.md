@@ -1,5 +1,6 @@
 - fix pow
 - hammerspoon config
+  - a way to select adjacent windows
 - create screenshot dir and add cleanup to dejunk
   - new ss script
 - finish pow dotfiles task (brew info pow for details)
