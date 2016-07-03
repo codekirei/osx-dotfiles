@@ -24,6 +24,16 @@ binds = {
       },
     },
 
+    focus = {
+      mods = { 'cmd', 'shift' },
+      keys = {
+        H = 'focusWindowWest',
+        J = 'focusWindowSouth',
+        K = 'focusWindowNorth',
+        L = 'focusWindowEast',
+      },
+    },
+
     -- grow = {
     --   mods = { 'ctrl', 'shift', 'alt' },
     --   keys = {
@@ -89,6 +99,13 @@ fns = {
       end
     end,
 
+    focus = function(method)
+      return function()
+        local filter = hs.window.filter.new():setCurrentSpace(true)
+        filter[method](filter, nil, true, true)
+      end
+    end,
+
     move = function(delta)
       return function()
         local window = hs.window.focusedWindow()
@@ -143,5 +160,8 @@ hs.hotkey.bind(binds.meta.reload.mods, binds.meta.reload.key, fns.meta.reload)
 -- end
 for k,v in pairs(binds.window.half.keys) do
   hs.hotkey.bind(binds.window.half.mods, k, fns.window.half(v))
+end
+for k,v in pairs(binds.window.focus.keys) do
+  hs.hotkey.bind(binds.window.focus.mods, k, fns.window.focus(v))
 end
 hs.hotkey.bind(binds.window.maximize.mods, binds.window.maximize.key, fns.window.maximize)
