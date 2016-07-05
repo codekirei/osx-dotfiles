@@ -64,6 +64,7 @@
       homebrew_cask: name={{ item }} state=present
       with_items:
         - alfred
+        - androidtool
         - atext
         - bartender
         - bettertouchtool
