@@ -54,6 +54,7 @@ Plug 'tpope/vim-rsi'
 Plug 'junegunn/vim-easy-align'
 Plug 'benekastah/neomake'
 Plug 'junegunn/goyo.vim'
+Plug 'chrisbra/csv.vim'
 
 " END PLUGINS
 "-------------------------------------------------------------------------------

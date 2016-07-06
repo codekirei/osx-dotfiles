@@ -1,3 +1,11 @@
+a () {
+  local AGAIN="$(fc -ln -1)"
+  echo "$AGAIN"
+  echo "---"
+  # this needs to expand aliases
+  zsh -c "$AGAIN"
+}
+
 path_append () {
   PATHS=(${(s_:_)PATH})
   IN_PATH=0
