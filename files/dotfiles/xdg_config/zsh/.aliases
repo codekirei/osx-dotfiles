@@ -3,6 +3,7 @@
 ############################################################
 LS='gls -FX --color --group-directories-first'
 alias sudo='sudo '
+alias bs='browser-sync'
 alias c='ccat '
 alias cdi='touch "$CDI" && ranger --choosedir="$CDI"; cd $(cat "$CDI"); \rm "$CDI"'
 alias e='nvim '
