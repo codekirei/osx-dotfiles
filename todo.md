@@ -1,4 +1,5 @@
 - fix pow
+- fix zsh history
 - hammerspoon config
   - "send to space" hotkeys
 - create screenshot dir and add cleanup to dejunk

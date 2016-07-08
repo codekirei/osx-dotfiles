@@ -1,7 +1,6 @@
 a () {
   local AGAIN="$(fc -ln -1)"
-  echo "$AGAIN"
-  echo "---"
+  echo "repeating: $AGAIN\n"
   # this needs to expand aliases
   zsh -c "$AGAIN"
 }
