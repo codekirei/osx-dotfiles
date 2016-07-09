@@ -2,6 +2,7 @@
 - fix zsh history
 - hammerspoon config
   - "send to space" hotkeys
+  - vertical alignment ratio hotkeys (window splits)
 - create screenshot dir and add cleanup to dejunk
   - new ss script
 - finish pow dotfiles task (brew info pow for details)
