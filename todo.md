@@ -1,3 +1,6 @@
+- set up tmux!
+  - tmuxp vs tmuxinator
+  - other tmux plugins
 - fix pow
 - fix zsh history
 - hammerspoon config
@@ -10,7 +13,6 @@
 - zsh in general
 - ls dircolors (or alternative?)
 - osx defaults
-- tmuxp vs tmuxinator
 - quicksilver?
 - taskwarrior?
 - https://github.com/koekeishiya/nerdbar.widget
