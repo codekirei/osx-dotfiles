@@ -1,3 +1,4 @@
+- todo app -- taskwarrior?
 - set up tmux!
   - tmuxp vs tmuxinator
   - other tmux plugins
