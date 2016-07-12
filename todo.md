@@ -1,3 +1,4 @@
+- automate iterm with no menu bar
 - todo app -- taskwarrior?
 - set up tmux!
   - tmuxp vs tmuxinator
