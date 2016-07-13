@@ -1,5 +1,13 @@
 - automate iterm with no menu bar
 - todo app -- taskwarrior?
+  - client
+    - readline cli
+    - curses cli
+    - qt
+    - web
+    - daemon (for syncing with server)
+  - server
+    - webhooks for syncing with client
 - set up tmux!
   - tmuxp vs tmuxinator
   - other tmux plugins
