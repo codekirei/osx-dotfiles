@@ -64,4 +64,11 @@ ge () {
   git push origin --delete "$1" && git branch -d "$1"
 }
 
+# git changed recently
+gcr () {
+  local DAYS=$([ -n "$1" ] && echo -n "$1" || echo -n 7)
+  echo "Files changed in last $DAYS days:\n---"
+  git diff --stat @{"$DAYS".days.ago}
+}
+
 # vim: ft=zsh
