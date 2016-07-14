@@ -1,3 +1,4 @@
+- dive deep on keyboard maestro / text expander / atext / btt / alfred / quicksilver
 - automate iterm with no menu bar
 - todo app -- taskwarrior?
   - client
@@ -12,19 +13,17 @@
   - tmuxp vs tmuxinator
   - other tmux plugins
 - fix pow
+  - finish pow dotfiles task (brew info pow for details)
 - fix zsh history
 - hammerspoon config
   - "send to space" hotkeys
   - vertical alignment ratio hotkeys (window splits)
 - create screenshot dir and add cleanup to dejunk
   - new ss script
-- finish pow dotfiles task (brew info pow for details)
 - prompt (colorize path? use hook and string substitution?)
 - zsh in general
 - ls dircolors (or alternative?)
 - osx defaults
-- quicksilver?
-- taskwarrior?
 - https://github.com/koekeishiya/nerdbar.widget
 - language specific apps
   - go
