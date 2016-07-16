@@ -13,7 +13,7 @@
 - set up tmux!
   - tmuxp vs tmuxinator
   - other tmux plugins
-- fix pow
+- fix pow (details in brew info pow)
   - finish pow dotfiles task (brew info pow for details)
 - fix zsh history
 - hammerspoon config
