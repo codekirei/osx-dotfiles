@@ -1,4 +1,5 @@
 - devise some useful zaps! :)
+  - trello weekly board
 - dive deep on keyboard maestro / text expander / atext / btt / alfred / quicksilver
 - automate iterm with no menu bar
   - fix height (currently too short by the height of missing menu bar)
