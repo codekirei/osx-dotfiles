@@ -1,7 +1,10 @@
+- rss reader
 - devise some useful zaps! :)
   - trello weekly board
   - weekly support rotation
 - dive deep on keyboard maestro / text expander / atext / btt / alfred / quicksilver
+  - snippets for work responses
+  - alfred workflow to start the day
 - automate iterm with no menu bar
   - fix height (currently too short by the height of missing menu bar)
 - todo app -- taskwarrior?
