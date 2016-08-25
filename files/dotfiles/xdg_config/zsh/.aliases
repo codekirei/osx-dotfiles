@@ -6,6 +6,7 @@ alias sudo='sudo '
 alias bs='browser-sync'
 alias c='ccat '
 alias cdi='touch "$CDI" && ranger --choosedir="$CDI"; cd $(cat "$CDI"); \rm "$CDI"'
+alias cdp='cd $(pbpaste)'
 alias e='nvim '
 alias l="$LS -A"
 alias la='l'
