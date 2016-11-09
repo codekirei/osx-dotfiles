@@ -23,9 +23,8 @@ call plug#begin()
 
 " COLORS
 "-------------------------------------------------------------------------------
-Plug 'scwood/vim-hybrid'
 " Plug 'atelierbram/vim-colors_duotones'
-" Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 " Plug 'junegunn/rainbow_parentheses.vim'
 " Plug 'lilydjwg/colorizer' -- super cool but causes weird flickering in insert mode =/
 
@@ -224,7 +223,7 @@ let &t_SI .= "\<Esc>[3 q"
 set termguicolors
 syntax on
 set background=dark
-color hybrid
+color base16-atelier-lakeside
 
 " let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
 " let g:rainbow#blacklist= [14, 7]
