@@ -23,9 +23,10 @@ call plug#begin()
 
 " COLORS
 "-------------------------------------------------------------------------------
+Plug 'scwood/vim-hybrid'
 " Plug 'atelierbram/vim-colors_duotones'
-Plug 'chriskempson/base16-vim'
-Plug 'junegunn/rainbow_parentheses.vim'
+" Plug 'chriskempson/base16-vim'
+" Plug 'junegunn/rainbow_parentheses.vim'
 " Plug 'lilydjwg/colorizer' -- super cool but causes weird flickering in insert mode =/
 
 " LANGUAGES
@@ -34,6 +35,9 @@ Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tbastos/vim-lua'
 Plug 'mattn/emmet-vim'
 Plug 'larsbs/vim-xmll'
+" Plug 'pangloss/vim-javascript'
+Plug 'othree/yajs.vim'
+Plug 'mxw/vim-jsx'
 
 " OTHER
 "-------------------------------------------------------------------------------
@@ -42,7 +46,7 @@ Plug 'tpope/vim-surround'
 Plug 'wincent/ferret'
 Plug 'tomtom/tcomment_vim'
 Plug 'coderifous/textobj-word-column.vim'
-Plug 'edsono/vim-matchit'
+Plug 'jwhitley/vim-matchit'
 Plug 'tpope/vim-abolish'
 Plug 'ivyl/vim-bling'
 Plug 'itchyny/lightline.vim'
@@ -175,6 +179,11 @@ let g:neomake_css_stylelint_maker = g:my_neomake_stylelint
 let g:neomake_scss_stylelint_maker = g:my_neomake_stylelint
 
 "-------------------------------------------------------------------------------
+" VIM-JSX
+"-------------------------------------------------------------------------------
+let g:jsx_ext_required = 0
+
+"-------------------------------------------------------------------------------
 " AUTOCOMMANDS
 "-------------------------------------------------------------------------------
 if !exists("g:loaded_gold")
@@ -190,7 +199,7 @@ if !exists("g:loaded_gold")
   au BufNewFile,BufRead * setlocal formatoptions-=cro
 
   " activate rainbow_parenthesis.vim
-  au BufNewFile,BufRead * RainbowParentheses
+  " au BufNewFile,BufRead * RainbowParentheses
 
   " improve postcss syntax highlighting by using scss ft
   au BufRead,BufNewFile *.css set ft=scss
@@ -204,15 +213,21 @@ set ignorecase
 set smartcase
 
 "-------------------------------------------------------------------------------
+" CURSOR
+"-------------------------------------------------------------------------------
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let &t_SI .= "\<Esc>[3 q"
+
+"-------------------------------------------------------------------------------
 " COLORS
 "-------------------------------------------------------------------------------
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+set termguicolors
 syntax on
 set background=dark
-color base16-monokai
+color hybrid
 
-let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
-let g:rainbow#blacklist= [14, 7]
+" let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
+" let g:rainbow#blacklist= [14, 7]
 
 set list
 set listchars=tab:>-,trail:_
