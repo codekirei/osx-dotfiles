@@ -50,7 +50,7 @@ Plug 'jwhitley/vim-matchit'
 Plug 'tpope/vim-abolish'
 Plug 'ivyl/vim-bling'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', {'dir': '$XDG_CACHE_HOME/fzf', 'do': './install --all'}
+Plug 'junegunn/fzf', {'dir': $XDG_CACHE_HOME . '/fzf', 'do': './install --all'}
 Plug 'Raimondi/delimitMate'
 Plug 'jeetsukumaran/vim-buffergator'
 Plug 'tpope/vim-vinegar'
@@ -141,7 +141,7 @@ let g:my_neomake_eslint_maker = {
   \ 'args': [
     \ '--format', 'compact',
     \ '--cache',
-    \ '--cache-location', '$XDG_CACHE_HOME/eslint/'
+    \ '--cache-location', $XDG_CACHE_HOME . '/eslint'
   \ ],
   \ 'errorformat': '%f: line %l\, col %c\, %m'
 \ }
@@ -167,16 +167,16 @@ endfunction
 "-------------------------------------------------------------------------------
 " NEOMAKE - stylelint
 "-------------------------------------------------------------------------------
-let g:neomake_css_enabled_makers = ['stylelint']
-let g:neomake_scss_enabled_makers = ['stylelint']
-let g:my_neomake_stylelint = {
-  \ 'args': [
-    \ '--config', '$XDG_CONFIG_HOME/stylelint/stylelint.config.js'
-  \ ],
-  \ 'errorformat': '%+P%f, %W%l:%c%*\s%m, %-Q'
-  \ }
-let g:neomake_css_stylelint_maker = g:my_neomake_stylelint
-let g:neomake_scss_stylelint_maker = g:my_neomake_stylelint
+" let g:neomake_css_enabled_makers = ['stylelint']
+" let g:neomake_scss_enabled_makers = ['stylelint']
+" let g:my_neomake_stylelint = {
+"   \ 'args': [
+"     \ '--config', '$XDG_CONFIG_HOME/stylelint/stylelint.config.js'
+"   \ ],
+"   \ 'errorformat': '%+P%f, %W%l:%c%*\s%m, %-Q'
+"   \ }
+" let g:neomake_css_stylelint_maker = g:my_neomake_stylelint
+" let g:neomake_scss_stylelint_maker = g:my_neomake_stylelint
 
 "-------------------------------------------------------------------------------
 " VIM-JSX
