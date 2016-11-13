@@ -34,8 +34,8 @@ Plug 'chriskempson/base16-vim'
 Plug 'tbastos/vim-lua'
 Plug 'mattn/emmet-vim'
 Plug 'larsbs/vim-xmll'
-" Plug 'pangloss/vim-javascript'
-Plug 'othree/yajs.vim'
+Plug 'pangloss/vim-javascript'
+" Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
 
 " OTHER

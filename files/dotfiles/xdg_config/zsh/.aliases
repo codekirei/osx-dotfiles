@@ -81,6 +81,7 @@ alias nu='nvm use --silent'
 alias nuc='nvm current'
 alias nud='nvm use default --silent'
 alias nul='nvm ls'
+alias n='node $(git rev-parse --show-toplevel)/scripts/runner.js '
 
 ############################################################
 # ANSIBLE
