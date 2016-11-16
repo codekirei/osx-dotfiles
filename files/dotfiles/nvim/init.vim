@@ -228,7 +228,7 @@ let &t_SI .= "\<Esc>[3 q"
 set termguicolors
 syntax on
 set background=dark
-color base16-atelier-lakeside
+color base16-embers
 
 " let g:rainbow#pairs = [['(', ')'], ['{', '}'], ['[', ']']]
 " let g:rainbow#blacklist= [14, 7]
