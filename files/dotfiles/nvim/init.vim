@@ -92,6 +92,12 @@ nnoremap <leader>c :noh<CR>:<C-c>
 " exit things
 inoremap kj <ESC>
 cnoremap kj <C-e><C-u><C-c>
+inoremap kJ <ESC>
+cnoremap kJ <C-e><C-u><C-c>
+inoremap Kj <ESC>
+cnoremap Kj <C-e><C-u><C-c>
+inoremap KJ <ESC>
+cnoremap KJ <C-e><C-u><C-c>
 
 " automatically recenter
 nnoremap n nzz
