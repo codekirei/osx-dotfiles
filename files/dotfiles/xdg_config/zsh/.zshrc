@@ -29,6 +29,13 @@ export NVM_DIR="$HOME/.nvm"
 . "$(brew --prefix nvm)/nvm.sh"
 
 ############################################################
+# PYTHON
+############################################################
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/code/python
+. /usr/local/bin/virtualenvwrapper.sh
+
+############################################################
 # FZF
 ############################################################
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
