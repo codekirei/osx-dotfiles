@@ -87,4 +87,9 @@ alias n='node $(git rev-parse --show-toplevel)/scripts/launcher.js '
 # ANSIBLE
 ############################################################
 alias play='ansible-playbook '
+
+############################################################
+# TMUX
+############################################################
+alias tma='tmux attach -t '
 # vim: ft=zsh

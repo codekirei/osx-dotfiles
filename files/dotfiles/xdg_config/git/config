@@ -11,3 +11,5 @@
 	editor = nvim
 [branch]
 	autosetuprebase = always
+[alias]
+	prlog = "!f() { git log ${1:-redux-v2}..HEAD --reverse --no-merges --pretty='---%n%n**%s** (%h)%n%n%b'; }; f"
