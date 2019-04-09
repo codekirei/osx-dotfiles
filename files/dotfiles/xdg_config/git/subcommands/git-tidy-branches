@@ -1,0 +1,8 @@
+#!/bin/sh
+
+source "$(git --exec-path)/git-sh-setup"
+
+git branch --merged | egrep -v "(^\*|master|develop)" | xargs git branch -d
+
+# vim: ft=sh
+

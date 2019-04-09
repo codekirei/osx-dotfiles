@@ -1,0 +1,7 @@
+#!/bin/sh
+
+source "$(git --exec-path)/git-sh-setup"
+
+git log "${1:-v2}..HEAD" --reverse --no-merges --pretty='---%n%n**%s** (%h)%n%n%b'
+
+# vim: ft=sh

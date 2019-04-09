@@ -71,4 +71,55 @@ gcr () {
   git diff --stat @{"$DAYS".days.ago}
 }
 
+# zapier python linting
+superlint () {
+  local CWD=$(pwd)
+  local GIT_ROOT=$(git rev-parse --show-toplevel)
+  cd -q "$GIT_ROOT"
+
+  local FLAKE8='flake8 --format=pylint --exit-zero'
+  local PYLINT='pylint -sn --disable=no-absolute-import'
+
+  local FILES=$(git status --porcelain | awk -F ' ' '{print $2}' | grep '.py' | tr '\n' ' ')
+  local FLAKE8_OUT=$($(expr $FLAKE8) $=FILES)
+  local PYLINT_OUT=$($(expr $PYLINT) $=FILES)
+  local COMBINED_OUT=$(printf '%s\n%s' $FLAKE8_OUT $PYLINT_OUT | sort -)
+  echo $COMBINED_OUT
+
+  cd -q $CWD
+}
+
+# helmig's script
+linty () {
+  CHANGED_PYTHON_FILES=`git diff-tree --diff-filter=ACMRT --no-commit-id --name-only -r origin/develop.. -- "*.py" | tr "\n" " "`
+  flake8 --exit-zero --format=pylint ${CHANGED_PYTHON_FILES}
+  pylint --py3k --disable=no-absolute-import --disable=round-builtin -sn --msg-template="{path}:{line}: [{msg_id}] {msg}" ${CHANGED_PYTHON_FILES}
+}
+
+# unfinished T_T
+today () {
+  local TODAY=$(date +%d)
+  local DOW=$(date +%a)
+  cal
+}
+
+ztdd () {
+  find $1 | entr -c docker-compose run web python manage.py test -k -v 0 $2
+}
+
+agenda () {
+  local DAYS=$([ -n "$1" ] && echo -n "$1" || echo -n 2)
+  local TODAY=$(date "+%m/%d/%Y")
+  local UNTIL=$(date -v+${DAYS}d "+%m/%d/%Y")
+  gcalcli --calendar jacob.blakely@zapier.com --detail_length agenda $TODAY $UNTIL
+}
+
+mux () {
+  # ensure we have an active tmux server so we load our config
+  tmux new -d -s TEMP
+  tmuxp load -d $XDG_CONFIG_HOME/tmuxp/$1.tmuxp.yml
+  tmux kill-session -t TEMP
+  tmux attach -t $1
+}
+
 # vim: ft=zsh

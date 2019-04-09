@@ -1,3 +1,6 @@
 autoload -U add-zsh-hook
+autoload -Uz compinit && compinit
+autoload -U promptinit; promptinit
+prompt pure
 
 # vim: ft=zsh

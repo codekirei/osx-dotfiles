@@ -15,6 +15,10 @@ alias r='ranger'
 alias rm='rm -i'
 alias rlz='. "$XDG_CONFIG_HOME"/zsh/.zshrc && . "$HOME"/.zshenv && clear'
 alias syu='play -K "$HOME"/code/dotfiles/osx-dotfiles/site.yml'
+alias chrome='/usr/local/Caskroom/google-chrome/latest/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
+alias gcal='gcalcli'
+alias mycal='gcalcli --calendar jacob.blakely@zapier.com'
 
 ############################################################
 # CD
@@ -27,15 +31,16 @@ alias ..5='cd ../../../../..'
 ############################################################
 # DOCKER
 ############################################################
-alias d='docker '
-alias dc='docker-compose '
-alias dm='docker-machine '
+alias d='docker'
+alias dc='docker-compose'
 alias dps='docker ps'
-alias dzr='dc run web python manage.py'
+alias dcrz='dc run web python manage.py'
+alias dczweb='docker-compose run --name zapier_web --service-ports web bash'
 
 ############################################################
 # GIT
 ############################################################
+alias g='git '
 alias ga='git add -A -v'
 alias gb='git checkout ' # branch
 alias gbc='git rev-parse --abbrev-ref HEAD' # current branch
@@ -58,7 +63,7 @@ alias gp='git push'
 alias gr='git remote'
 alias gs='git stash'
 alias gt='git branch -a' # tree
-alias gu='git pull' # update
+alias gu='git fetch && git pull && git remote prune origin' # update
 alias gv='git tag ' # version
 alias gw='git blame ' # who
 alias gx='git rm --cached '
