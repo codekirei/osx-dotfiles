@@ -24,7 +24,7 @@
 # Logs and databases #
 ######################
 *.log
-*.sql
+# *.sql
 *.sqlite
 
 ######################
@@ -47,3 +47,4 @@ Thumbs.db
 # Jacobisms #
 #############
 *.todo
+.tags

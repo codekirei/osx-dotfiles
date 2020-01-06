@@ -39,13 +39,17 @@ Plug 'pangloss/vim-javascript'
 " Plug 'othree/yajs.vim'
 Plug 'mxw/vim-jsx'
 " Plug 'prettier/vim-prettier', { 'tag': '0.0.15' }
-Plug 'prettier/vim-prettier', { 'tag': '0.2.7' }
+Plug 'prettier/vim-prettier', {
+  \ 'tag': '0.2.7',
+  \ 'do': 'yarn install',
+  \ }
 " Plug 'flowtype/vim-flow'
 
 " OTHER
 "-------------------------------------------------------------------------------
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'wincent/ferret'
 Plug 'tomtom/tcomment_vim'
 Plug 'coderifous/textobj-word-column.vim'
@@ -60,11 +64,13 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-rsi'
 Plug 'junegunn/vim-easy-align'
 Plug 'junegunn/goyo.vim'
-" Plug 'chrisbra/csv.vim'
 Plug 'w0rp/ale'
+Plug 'vim-scripts/DrawIt'
+Plug 'qpkorr/vim-renamer'
 " Plug 'baverman/vial'
 " Plug 'baverman/vial-http'
 " Plug 'MarcWeber/vim-addon-qf-layout'
+" Plug 'chrisbra/csv.vim'
 
 Plug 'autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
@@ -83,6 +89,10 @@ set softtabstop=2
 set shiftwidth=2
 set nowrap
 set nofoldenable
+
+" show current line and relative lines above and below
+set number
+set relativenumber
 
 "-------------------------------------------------------------------------------
 " KEYS
@@ -145,7 +155,7 @@ vnoremap <silent> <leader>y :<CR>:let @a=@" \| execute "normal! vgvy" \| let res
 "-------------------------------------------------------------------------------
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
-nnoremap <leader>G :Goyo<CR>
+" nnoremap <leader>G :Goyo<CR>
 
 "-------------------------------------------------------------------------------
 " QF-LAYOUT
@@ -277,7 +287,7 @@ if !exists("g:loaded_gold")
   " au BufRead,BufNewFile *.{jsx,js} :call SetupPrettier()
 
   " automatically format certain filetypes on write
-  au BufWritePre *.{json,jsx,js} PrettierAsync
+  au BufWritePre *.{json,jsx,js,md} PrettierAsync
 
   " call neomake on :w
   " au BufWritePost * Neomake
@@ -335,3 +345,9 @@ let g:LanguageClient_serverCommands = {
   \ 'javascript': ['/usr/local/bin/javascript-typescript-languageserver'],
   \ }
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+
+"-------------------------------------------------------------------------------
+" OTHER
+"-------------------------------------------------------------------------------
+" search recursively upwards for tags file
+set tags=./.tags;/

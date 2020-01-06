@@ -1,4 +1,11 @@
 ############################################################
+# COREUTILS
+############################################################
+alias sed=gsed
+alias head=ghead
+alias tail=gtail
+
+############################################################
 # GENERAL
 ############################################################
 LS='gls -FX --color --group-directories-first'
@@ -7,14 +14,22 @@ alias bs='browser-sync'
 alias c='ccat '
 alias cdi='touch "$CDI" && ranger --choosedir="$CDI"; cd $(cat "$CDI"); \rm "$CDI"'
 alias cdp='cd $(pbpaste)'
+# d = docker
 alias e='nvim '
+alias em='emacs -q -l ~/.config/emacs/init.el'
+alias k='kubectl '
+alias kx='kubectx'
+alias j='jira'
 alias l="$LS -A"
 alias la='l'
 alias ll='l -o'
+alias n='dnote'
+alias prettypath='echo $PATH | tr ":" "\n"'
 alias r='ranger'
-alias rm='rm -i'
+alias rm='rmtrash'
 alias rlz='. "$XDG_CONFIG_HOME"/zsh/.zshrc && . "$HOME"/.zshenv && clear'
 alias syu='play -K "$HOME"/code/dotfiles/osx-dotfiles/site.yml'
+# t = task
 alias chrome='/usr/local/Caskroom/google-chrome/latest/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
 alias tmux='tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf'
 alias gcal='gcalcli'
@@ -34,17 +49,29 @@ alias ..5='cd ../../../../..'
 alias d='docker'
 alias dc='docker-compose'
 alias dps='docker ps'
-alias dcrz='dc run web python manage.py'
+alias dcrw='dc run web backend/bin/manage'
 alias dczweb='docker-compose run --name zapier_web --service-ports web bash'
+
+############################################################
+# TASKWARRIOR
+############################################################
+alias t='task'
+alias tt='vit'
+alias tat='task add project:temp due:tomorrow'
+alias taz='task add project:zapier'
+alias tazd='task add project:zapier status:completed'
+alias tah='task add project:home'
 
 ############################################################
 # GIT
 ############################################################
 alias g='git '
 alias ga='git add -A -v'
+alias gai='git add -i' # incremental add
 alias gb='git checkout ' # branch
 alias gbc='git rev-parse --abbrev-ref HEAD' # current branch
 alias gc='git commit -m '
+alias gca='git commit --amend --no-edit'
 alias gcl='git commit'
 alias gd='git diff'
 #alias ge # evict -- see zsh .functions
@@ -59,8 +86,10 @@ alias gm='git merge'
 alias gn='git checkout -b ' # new
 #go -- taken by golang
 alias gp='git push'
+alias gpf='git push --force-with-lease'
 #alias gq=
-alias gr='git remote'
+alias gr='git rebase'
+alias grc='git rebase --continue'
 alias gs='git stash'
 alias gt='git branch -a' # tree
 alias gu='git fetch && git pull && git remote prune origin' # update
@@ -86,7 +115,7 @@ alias nu='nvm use --silent'
 alias nuc='nvm current'
 alias nud='nvm use default --silent'
 alias nul='nvm ls'
-alias n='node $(git rev-parse --show-toplevel)/scripts/launcher.js '
+# alias n='node $(git rev-parse --show-toplevel)/scripts/launcher.js '
 
 ############################################################
 # ANSIBLE

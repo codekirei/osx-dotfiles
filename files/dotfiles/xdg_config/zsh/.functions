@@ -107,11 +107,11 @@ ztdd () {
   find $1 | entr -c docker-compose run web python manage.py test -k -v 0 $2
 }
 
-agenda () {
+meetings () {
   local DAYS=$([ -n "$1" ] && echo -n "$1" || echo -n 2)
   local TODAY=$(date "+%m/%d/%Y")
   local UNTIL=$(date -v+${DAYS}d "+%m/%d/%Y")
-  gcalcli --calendar jacob.blakely@zapier.com --detail_length agenda $TODAY $UNTIL
+  gcalcli agenda --nodeclined $TODAY $UNTIL
 }
 
 mux () {
@@ -120,6 +120,37 @@ mux () {
   tmuxp load -d $XDG_CONFIG_HOME/tmuxp/$1.tmuxp.yml
   tmux kill-session -t TEMP
   tmux attach -t $1
+}
+
+# start a particular container with docker-compose
+dcr () {
+  docker-compose run --use-aliases --service-ports $1 bash
+}
+
+donetoday () {
+  task project:zapier status:completed end:today export | jq ".[].description" | sed 's/^/- /g' | sed 's/"//g'
+}
+
+meetingstoday () {
+  local TODAY=$(date "+%m/%d/%Y")
+  local UNTIL=$(date -v+1d "+%m/%d/%Y")
+  gcalcli agenda --tsv --nodeclined $TODAY $UNTIL | cut -d$'\t' -f 5 | sed 's/^/- /'
+}
+
+_eod () {
+  local MEETINGS=$(meetingstoday)
+  if [[ -n "$MEETINGS" ]] then
+    echo -n "*Calls*\n\n$MEETINGS\n\n"
+  fi
+
+  local DONE=$(donetoday)
+  if [[ -n "$DONE" ]] then
+    echo -n "*Other*\n\n$DONE"
+  fi
+}
+
+eod () {
+  _eod | tee >(pbcopy)
 }
 
 # vim: ft=zsh
